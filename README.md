@@ -1,3 +1,108 @@
+# 🌤️ Weather App
+
+A React weather application that lets users search by city, view current conditions, and save favorite cities. Built with React, Redux Toolkit, and React-Redux. Uses the OpenWeatherMap API.
+
+## Features
+
+- Search weather by city name
+- Display temperature, humidity, and wind speed
+- Add/remove favorite cities
+- One-click to view weather for a favorite city
+
+## Tech Stack
+
+- React 19
+- Redux Toolkit
+- React-Redux
+- Create React App (react-scripts)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 16+ (18+ recommended)
+- npm 7+
+
+### Installation
+
+```bash
+cd weatherapp
+npm install
+# Ensure Redux deps (if not already installed)
+npm install @reduxjs/toolkit react-redux
+```
+
+### Environment Setup (API Key)
+
+This app uses OpenWeatherMap. The example code currently has a demo key in `src/features/weather/WeatherSlice.js`. For production, create a free key and store it in an environment variable.
+
+1. Create `.env` in the project root (same level as package.json):
+
+```bash
+REACT_APP_OPENWEATHER_API_KEY=your_key_here
+```
+
+2. Update `src/features/weather/WeatherSlice.js` to read from `process.env.REACT_APP_OPENWEATHER_API_KEY`.
+
+### Run the app
+
+```bash
+npm start
+```
+
+Open `http://localhost:3000` in your browser.
+
+## Project Structure
+
+```
+weatherapp/
+  public/
+  src/
+    app/store.js           # Redux store
+    App.js                 # Root component/layout
+    components/
+      WeatherSearch.js     # City input + search
+      WeatherDisplay.js    # Current weather output
+      FavoritesList.js     # Favorite cities list
+    features/weather/
+      WeatherSlice.js      # Slice, async thunk for fetching
+```
+
+## Usage
+
+1. Enter a city name and click Search
+2. View temperature, humidity, and wind speed
+3. Click "Add to Favorites" to save the city
+4. Use the favorites list to quickly view or remove cities
+
+## Troubleshooting
+
+- App not rendering or blank screen
+
+  - Ensure Redux dependencies are installed: `npm install @reduxjs/toolkit react-redux`
+  - Restart the dev server after installation
+
+- "City not found" error
+
+  - Check the city spelling
+  - Verify your API key is valid if you replaced the demo key
+
+- CORS or network errors
+  - Check your internet connection
+  - Verify the OpenWeatherMap API status and your account limits
+
+## Scripts
+
+```bash
+npm start     # Start dev server
+npm build     # Create production build
+npm test      # Run tests
+```
+
+## License
+
+This project is for learning purposes. Adapt as needed for your own use.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
